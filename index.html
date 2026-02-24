@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para alguem MUITO ESPECIAL</title>
+
+<style>
+ /* =======================
+   MENSAGEM FINAL
+======================= */
+
+.galaxy-message{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+    color:white;
+    font-size:2rem;
+    max-width:800px;
+    padding:20px;
+    opacity:0;
+    animation:fadeMessage 2s ease forwards;
+    text-shadow:0 0 20px rgba(168,85,247,0.8);
+    line-height:1.4;
+}
+
+@keyframes fadeMessage{
+    from{
+        opacity:0;
+        transform:translate(-50%, -40%);
+    }
+    to{
+        opacity:1;
+        transform:translate(-50%, -50%);
+    }
+}
+
+@media(max-width:768px){
+    .galaxy-message{
+        font-size:1.4rem;
+        padding:15px;
+    }
+}
+
+    /* =======================
+   GALÁXIA
+======================= */
+
+.galaxy{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: radial-gradient(circle at center, #2a004d 0%, #0a001a 60%, #000 100%);
+    z-index:999;
+    overflow:hidden;
+    animation: galaxyFade 1s ease forwards;
+}
+
+@keyframes galaxyFade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation: starMove linear infinite;
+}
+
+@keyframes starMove{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-100vh);
+    }
+}
+
+/* =======================
+   ESTILO GERAL
+======================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #28004d, #0b001a);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =======================
+   SEÇÃO HOME
+======================= */
+section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    text-align:center;
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:1rem;
+    transition:0.3s;
+}
+
+.primary-btn{
+    background:#fff;
+    color:#1e43e9;
+}
+
+.primary-btn:hover{
+    background:#1e43e9;
+    color:#fff;
+}
+
+/* =======================
+   BOTÕES
+======================= */
+button{
+    padding:14px 28px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:1rem;
+    transition:0.3s;
+    background:linear-gradient(90deg,#7c3aed,#a855f7);
+    color:white;
+    box-shadow:0 5px 20px rgba(124,58,237,0.5);
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 10px 30px rgba(168,85,247,0.7);
+}
+
+/* =======================
+   FUNDO COM BRILHO
+======================= */
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(140,0,255,0.4), transparent 70%);
+    top:-200px;
+    left:-200px;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle, rgba(80,0,200,0.4), transparent 70%);
+    bottom:-150px;
+    right:-150px;
+    z-index:-1;
+}
+
+/* =======================
+   TYPEWRITER
+======================= */
+#typewriter{
+    max-width:600px;
+    font-size:1.2rem;
+    margin-top:20px;
+    border-right:3px solid white;
+    white-space:pre-wrap;
+    overflow:hidden;
+}
+
+/* =======================
+   GALERIA
+======================= */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    width:100%;
+    max-width:900px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.1);
+}
+
+/* =======================
+   TIMELINE
+======================= */
+.timeline{
+    position:relative;
+    max-width:700px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    width:4px;
+    height:100%;
+    background:white;
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    margin:20px 0;
+    padding:20px;
+    background:rgba(255,255,255,0.2);
+    border-radius:10px;
+    position:relative;
+    width:45%;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+}
+
+.timeline-item:nth-child(even){
+    left:55%;
+}
+
+.timeline-item::before{
+    content:"💜";
+    position:absolute;
+    top:20px;
+    right:-25px;
+    font-size:1.5rem;
+}
+
+/* =======================
+   PEDIDO FINAL
+======================= */
+.final-buttons{
+    margin-top:20px;
+}
+
+.final-buttons button{
+    margin:10px;
+}
+
+#noBtn{
+    position:relative;
+}
+
+/* =======================
+   CORAÇÕES CAINDO
+======================= */
+.heart{
+    position:fixed;
+    top:-10px;
+    color:white;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(100vh);
+    }
+}
+
+/* =======================
+   RESPONSIVO
+======================= */
+@media(max-width:768px){
+    h1{
+        font-size:2rem;
+    }
+    .timeline-item{
+        width:90%;
+        left:0 !important;
+        margin-left:5%;
+    }
+    .timeline::before{
+        left:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =======================
+     HOME
+======================= -->
+<section id="home">
+    <h1>Para uma pessoa que eu amo muito 💙</h1>
+    <p>Um pequena demonstração de como eu gosto de vc 💙</p>
+    <button class="primary-btn" onclick="document.getElementById('mensagem').scrollIntoView({behavior:'smooth'})">
+        Descubra oque te aguarda
+    </button>
+</section>
+
+<!-- =======================
+     MENSAGEM
+======================= -->
+<section id="mensagem">
+    <h1>Minha Declaração 💌</h1>
+    <div id="typewriter"></div>
+</section>
+
+<!-- =======================
+     GALERIA
+======================= -->
+<section>
+    <h1>Suas fotos que eu me encanto</h1>
+    <div class="gallery">
+        <img src="imagens/foto1.png.png" alt="Foto 1">
+        <img src="imagens/foto2.png.png" alt="Foto 2">
+        <img src="imagens/foto3.png.png" alt="Foto 3">
+    </div>
+</section>
+
+<!-- =======================
+     TIMELINE
+======================= -->
+<section>
+    <h1>Coisas que eu mais gosto em vc💗</h1>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h3>Sua mentalidade</h3>
+            <p>Como vc lida com as coisas, eu admiro mto da sua parte, sempre quando vai resolver algo, vc n pensa só em vc, mas s em no futuro, nas pessoas envolvidas/p>
+        </div>
+        <div class="timeline-item">
+            <h3>Sua vontade de ser Mãe</h3>
+            <p>Sobre isso..., minha parte favorita, quando se começa a falar sobre esses assuntos eu fico, paralisado com os olhos brilhando lendo cada palavra na tela do cllr</p>
+        </div>
+        <div class="timeline-item">
+            <h3>Seu jeito, estilo e risada</h3>
+            <p>Eu n sei explicar mas se tem algo q me conquista cada dia mais, seu estilo eu gosto mto dele, alem de bonita, perfeita, linda, é estilosa " q mulher pqp ", e a sua risada, ela tem algo mto especial, sla, é tão bom ouvir sua risada, torna tudo mais leve como o momento passase mais lento</p>
+        </div>
+    </div>
+</section>
+
+<!-- =======================
+     MÚSICA
+======================= -->
+<section>
+    <h1>Uma musiquinha</h1>
+
+    <audio id="music" loop>
+        <source src="musica/musica.mp3.mp4" type="audio/mp3">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <button class="primary-btn" onclick="toggleMusic()">
+        Tocar / Pausar Música
+    </button>
+</section>
+
+<!-- =======================
+     PEDIDO FINAL
+======================= -->
+<section>
+    <h1>Vc me permite te fazer mais feliz ainda? 💖</h1>
+    <div class="final-buttons">
+        <button id="simBtn">Sim</button>
+        <button id="noBtn" class="primary-btn">Não</button>
+    </div>
+</section>
+
+<script>
+/* =======================
+   TYPEWRITER
+======================= */
+const text = "Bom minha princesa, desde q vc apareceu eu me sinto mais feliz. nunca quis tanto algo como eu quero vc. quero dividir momentos, ver o pôr do sol do seu lado, admirar as estrelas, olhar nos seus olhos e, enquanto vc sorri pra mim, dizer o qnt eu te amo e o qnt vc é essencial pra mim. ";
+let index = 0;
+
+function typeWriter(){
+    if(index < text.length){
+        document.getElementById("typewriter").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 50);
+    }
+}
+typeWriter();
+
+/* =======================
+   MÚSICA
+======================= */
+function toggleMusic(){
+    const music = document.getElementById("music");
+    if(music.paused){
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+
+/* =======================
+   BOTÃO NÃO FOGE
+======================= */
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * window.innerWidth - 100;
+    const y = Math.random() * window.innerHeight - 50;
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+/* =======================
+   CORAÇÕES CAINDO
+======================= */
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💙";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 300);
+
+/* =======================
+   EXPLOSÂO AO CLICAR SIM
+======================= */
+function explosao(){
+
+    const cores = ["#ff4d6d","#ff66b2","#c084ff","#ff99cc","#ff1a75"];
+
+    for(let i = 0; i < 120; i++){
+
+        const heart = document.createElement("div");
+        heart.innerHTML = "💜";
+        heart.style.position = "fixed";
+        heart.style.left = "50%";
+        heart.style.top = "50%";
+        heart.style.fontSize = Math.random() * 25 + 15 + "px";
+        heart.style.pointerEvents = "none";
+        heart.style.zIndex = "9999";
+        heart.style.transform = "translate(-50%, -50%)";
+        heart.style.transition = "all 1.2s cubic-bezier(.17,.67,.83,.67)";
+        heart.style.color = cores[Math.floor(Math.random()*cores.length)];
+
+        document.body.appendChild(heart);
+
+        // direção aleatória
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = Math.random() * 400 + 100;
+
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+
+        setTimeout(() => {
+            heart.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random()*720}deg)`;
+            heart.style.opacity = "0";
+        }, 10);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1300);
+    }
+
+}
+
+const simBtn = document.getElementById("simBtn");
+
+simBtn.addEventListener("click", () => {
+    explosaoCoracoes();
+    criarGalaxia();
+});
+
+/* =======================
+   EXPLOSÃO DE CORAÇÕES
+======================= */
+function explosaoCoracoes(){
+
+    const cores = ["#ff4d6d","#ff66b2","#c084ff","#ff99cc"];
+
+    for(let i = 0; i < 120; i++){
+
+        const heart = document.createElement("div");
+        heart.innerHTML = "💜";
+
+        heart.style.position = "fixed";
+        heart.style.left = "50%";
+        heart.style.top = "50%";
+        heart.style.fontSize = (Math.random()*20+20)+"px";
+        heart.style.pointerEvents = "none";
+        heart.style.zIndex = "1000";
+        heart.style.transform = "translate(-50%, -50%)";
+        heart.style.transition = "all 1s ease-out";
+        heart.style.color = cores[Math.floor(Math.random()*cores.length)];
+
+        document.body.appendChild(heart);
+
+        const angle = Math.random() * 2 * Math.PI;
+        const distance = Math.random() * 400 + 100;
+
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+
+        setTimeout(()=>{
+            heart.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random()*360}deg)`;
+            heart.style.opacity = "0";
+        },10);
+
+        setTimeout(()=>{
+            heart.remove();
+        },1000);
+    }
+}
+
+/* =======================
+   CRIAR GALÁXIA
+======================= */
+function criarGalaxia(){
+
+    const galaxy = document.createElement("div");
+    galaxy.classList.add("galaxy");
+    document.body.appendChild(galaxy);
+
+    // criar estrelas
+    for(let i = 0; i < 200; i++){
+        const star = document.createElement("div");
+        star.classList.add("star");
+
+        star.style.left = Math.random()*100 + "vw";
+        star.style.top = Math.random()*100 + "vh";
+        star.style.animationDuration = (Math.random()*5 + 3) + "s";
+        star.style.opacity = Math.random();
+
+        galaxy.appendChild(star);
+    }
+
+    // mensagem depois de 2 segundos
+    setTimeout(() => {
+
+        const message = document.createElement("div");
+        message.classList.add("galaxy-message");
+        message.innerHTML = `
+        Prometo te fazer a mulher mais feliz do mundo 💜<br><br>
+        E te tratar como você merece...<br>
+        Minha princesa ✨
+        `;
+
+        galaxy.appendChild(message);
+
+    }, 2000);
+}
+
+</script>
+
+</body>
+</html>
